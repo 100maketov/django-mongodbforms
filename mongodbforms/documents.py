@@ -308,6 +308,10 @@ class DocumentFormMetaclass(DeclarativeFieldsMetaclass):
         if 'media' not in attrs:
             new_class.media = media_property(new_class)
 
+        # Django 1.6 support
+        if not hasattr(new_class, 'declared_fields'):
+            new_class.declared_fields = attrs['base_fields']
+
         opts = new_class._meta = ModelFormOptions(
             getattr(new_class, 'Meta', None)
         )
