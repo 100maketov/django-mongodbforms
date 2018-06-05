@@ -22,7 +22,7 @@ except ImportError:
 from mongoengine.queryset import OperationError, Q
 from mongoengine.queryset.base import BaseQuerySet
 from mongoengine.connection import get_db, DEFAULT_CONNECTION_NAME
-from mongoengine.base import NON_FIELD_ERRORS as MONGO_NON_FIELD_ERRORS
+from mongoengine.base.document import NON_FIELD_ERRORS as MONGO_NON_FIELD_ERRORS
 
 from gridfs import GridFS
 
