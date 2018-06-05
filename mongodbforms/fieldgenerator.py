@@ -130,8 +130,12 @@ class MongoFormFieldGenerator(object):
         return ''
 
     def get_field_help_text(self, field):
-        return getattr(field, 'help_text', '')
-            
+        help_text = getattr(field, 'help_text', None)
+        if help_text:
+            return help_text
+        else:
+            return ''
+
     def get_field_default(self, field):
         if isinstance(field, (MongoListField, MongoMapField)):
             f = field.field
